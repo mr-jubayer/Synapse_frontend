@@ -34,7 +34,7 @@ import {
   telegram,
   twitter,
   yourlogo,
-} from "../assets";
+} from "../../assets";
 
 export const heroIcons = [homeSmile, file02, searchMd, plusSquare];
 
