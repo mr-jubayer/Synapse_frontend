@@ -1,4 +1,4 @@
-import { useLocation } from "react-router";
+import { Link, useLocation } from "react-router";
 import { synapse } from "../../assets";
 import { HamburgerMenu } from "../design/Header";
 import Button from "../ui/Button";
@@ -36,7 +36,7 @@ const navigation = [
   {
     id: "5",
     title: "Sign in",
-    url: "#login",
+    url: "/login",
     onlyMobile: true,
   },
 ];
@@ -69,9 +69,9 @@ const Header = () => {
       }`}
     >
       <div className="flex items-center px-5 lg:px-7.5 xl:px-10 max-lg:py-4">
-        <a className="block w-[12rem] xl:mr-8" href="#hero">
+        <Link className="block w-[12rem] xl:mr-8" to={"/"}>
           <img src={synapse} width={190} height={40} alt="synapse" />
-        </a>
+        </Link>
 
         <nav
           className={`${
@@ -107,7 +107,10 @@ const Header = () => {
           New account
         </a>
         <div className="hidden lg:flex">
-          <Button href="#login">Sign in</Button>
+          <Link to={"/login"}>
+            {" "}
+            <Button>Sign in</Button>
+          </Link>
         </div>
 
         <Button
