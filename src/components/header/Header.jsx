@@ -100,15 +100,13 @@ const Header = () => {
           <HamburgerMenu />
         </nav>
 
-        <a
-          href="#signup"
-          className="button hidden mr-8 text-n-1/50 transition-colors hover:text-n-1 lg:block"
-        >
-          New account
-        </a>
+        <Link to={"/register"}>
+          <span className="button hidden mr-8 text-n-1/50 transition-colors hover:text-n-1 lg:block">
+            New account
+          </span>
+        </Link>
         <div className="hidden lg:flex">
           <Link to={"/login"}>
-            {" "}
             <Button>Sign in</Button>
           </Link>
         </div>

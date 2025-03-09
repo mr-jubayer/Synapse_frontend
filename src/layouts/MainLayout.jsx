@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import ButtonGradient from "../assets/svg/ButtonGradient";
 import Header from "../components/header/Header";
 import { Outlet } from "react-router";
@@ -9,6 +10,9 @@ export const MainLayout = () => {
 
       <Outlet />
       <ButtonGradient />
+
+      {/* notification */}
+      <Toaster position="bottom-right" reverseOrder={false} />
     </div>
   );
 };
