@@ -65,22 +65,29 @@ const NavBar = ({ openNavigation, handleClick }) => {
               key={link.id}
               to={link.url}
               onClick={handleClick}
-              className={classNames(
-                //   common styles
+              className={({ isActive }) =>
+                classNames(
+                  `${
+                    isActive
+                      ? "text-n-1"
+                      : "text-n-1/50 transition-colors hover:text-n-1"
+                  }`,
+                  //   common styles
 
-                `block relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1 `,
+                  `block relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1 `,
 
-                //   mobile only routes
-                `${link.onlyMobile ? "lg:hidden" : ""} `,
+                  //   mobile only routes
+                  `${link.onlyMobile ? "lg:hidden" : ""} `,
 
-                `${link.title === "Profile" && "bg-black/60 text-black"}`,
+                  `${link.title === "Profile" && "bg-black/60"}`,
 
-                // hide specific data
-                link.classes,
-                //   common styles
+                  // hide specific data
+                  link.classes,
+                  //   common styles
 
-                `px-6 py-4 md:py-5 lg:-mr-0.25 lg:text-sm lg:font-semibold lg:leading-5 lg:hover:text-n-1 hover:text-1 xl:px-12`
-              )}
+                  `px-6 py-4 md:py-5 lg:-mr-0.25 lg:text-sm lg:font-semibold lg:leading-5 lg:hover:text-n-1 hover:text-1 xl:px-12`
+                )
+              }
             >
               {link.title}
             </NavLink>

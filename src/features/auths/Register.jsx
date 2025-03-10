@@ -35,7 +35,7 @@ const Register = () => {
 
         <GoogleSignin className={"mt-5"} />
         <p className="text-center my-4 text-lg">or</p>
-        <div className="border p-8 rounded-lg text-n-4 bg-[#0E0D16] shadow-2xl  shadow-1/10">
+        <div className="border-[2px] border-n-6 p-8 rounded-lg text-n-4 bg-[#0E0D16] shadow-2xl  shadow-1/10">
           <form
             onSubmit={handleSubmit(handleSignUp)}
             className="flex flex-col gap-4"
