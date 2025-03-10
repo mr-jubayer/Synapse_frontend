@@ -11,21 +11,19 @@ const Pricing = () => {
       <div className="container relative z-2 mt-10 lg:space-y-14">
         <div className="relative">
           <PricingList />
-          {/*<LeftLine />
-          <RightLine /> */}
         </div>
-        <div className="hidden relative justify-center mb-[6.5rem] lg:flex opacity-60 lg:animate-[spin_50s_linear_infinite]">
+        <div className="hidden relative justify-center mb-[6.5rem] lg:flex opacity-60  ">
           <img
             src={smallSphere}
-            className="relative z-1"
+            className="relative z-1 lg:animate-[spin_60s_linear_infinite]"
             width={255}
             height={255}
             alt="Sphere"
           />
-          <div className="absolute top-1/2 left-1/2 w-[60rem] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 w-[60rem] -translate-x-1/2 -translate-y-1/2 pointer-events-none lg:animate-[spin_50s_linear_infinite]">
             <img
               src={stars}
-              className="w-full"
+              className="w-full "
               width={950}
               height={400}
               alt="Stars"
