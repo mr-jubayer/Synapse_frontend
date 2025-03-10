@@ -1,10 +1,10 @@
 import React from "react";
-import Section from "../../components/Section";
-import Heading from "../../components/Heading";
-import { benefits } from "../../components/constant";
-import Arrow from "../../assets/svg/Arrow";
-import { GradientLight } from "../../components/design/Benefits";
-import ClipPath from "../../assets/svg/ClipPath";
+import Section from "../../../components/Section";
+import Heading from "../../../components/Heading";
+import { benefits } from "../../../components/constant";
+import Arrow from "../../../assets/svg/Arrow";
+import { GradientLight } from "../../../components/design/Benefits";
+import ClipPath from "../../../assets/svg/ClipPath";
 
 const Benefits = () => {
   return (

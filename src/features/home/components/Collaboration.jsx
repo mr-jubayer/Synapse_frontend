@@ -1,8 +1,11 @@
-import { collabApps, collabContent } from "../../components/constant";
-import Section from "../../components/Section";
-import { brainwaveWhiteSymbol, check } from "../../assets";
-import Button from "../../components/ui/Button";
-import { LeftCurve, RightCurve } from "../../components/design/Collaboration";
+import { collabApps, collabContent } from "../../../components/constant";
+import Section from "../../../components/Section";
+import { brainwaveWhiteSymbol, check } from "../../../assets";
+import Button from "../../../components/ui/Button";
+import {
+  LeftCurve,
+  RightCurve,
+} from "../../../components/design/Collaboration";
 
 const Collaboration = () => {
   return (

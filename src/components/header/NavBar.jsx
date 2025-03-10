@@ -11,6 +11,11 @@ const NavBar = ({ openNavigation, handleClick }) => {
   const navigation = [
     {
       id: "0",
+      title: "Home",
+      url: "/",
+    },
+    {
+      id: "00",
       title: "Features",
       url: "/features",
     },
@@ -85,7 +90,7 @@ const NavBar = ({ openNavigation, handleClick }) => {
                   link.classes,
                   //   common styles
 
-                  `px-6 py-4 md:py-5 lg:-mr-0.25 lg:text-sm lg:font-semibold lg:leading-5 lg:hover:text-n-1 hover:text-1 xl:px-12`
+                  `px-6 py-4 md:py-5 lg:-mr-0.25 lg:text-sm lg:font-semibold lg:leading-5 lg:hover:text-n-1 hover:text-1 xl:px-8`
                 )
               }
             >

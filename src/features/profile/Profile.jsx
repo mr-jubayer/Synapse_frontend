@@ -12,10 +12,10 @@ const Profile = () => {
   };
 
   return (
-    <div className="lg:pt-[6rem] md:pt-[8rem] pt-[10rem] container">
+    <div className="lg:pt-[2rem] md:pt-[8rem] pt-[8rem] container">
       <PageHeading>Profile Page</PageHeading>
 
-      <div className="h-full border-[2px] border-n-6 rounded-lg mt-6 p-5">
+      <div className="h-full border-[2px] border-n-6 rounded-lg mt-10 p-5">
         <div className="flex justify-between items-center">
           <div className="flex gap-3 items-center">
             <div className="h-32 aspect-square rounded-full bg-gray-800" />
