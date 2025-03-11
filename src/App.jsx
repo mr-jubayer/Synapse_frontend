@@ -8,6 +8,7 @@ import Profile from "./features/profile/Profile";
 import PrivetRoute from "./routes/PrivetRoute";
 import UnauthorizedAccess from "./routes/UnauthorizedAccess";
 import Pricing from "./features/pricing/Pricing";
+import PaymentPage from "./features/pricing/PaymentPage";
 
 const App = () => {
   return (
@@ -16,6 +17,11 @@ const App = () => {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="/pricing" element={<Pricing />} />
+
+          <Route element={<PrivetRoute />}>
+            <Route path="/payment" element={<PaymentPage />} />
+          </Route>
+
           <Route element={<PrivetRoute />}>
             <Route path="/profile" element={<Profile />} />
           </Route>

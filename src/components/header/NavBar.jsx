@@ -8,8 +8,6 @@ import classNames from "classnames";
 const NavBar = ({ openNavigation, handleClick }) => {
   const { user } = useAuth();
 
-  console.log(user?.photoURL ? user?.photoURL : user?.displayName[0]);
-
   const navigation = [
     {
       id: "0",

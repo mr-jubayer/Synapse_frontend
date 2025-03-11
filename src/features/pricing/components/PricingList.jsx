@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { check } from "../../../assets";
 import { pricing } from "../../../components/constant";
 import Button from "../../../components/ui/Button";
@@ -27,13 +28,15 @@ const PricingList = () => {
             )}
           </div>
 
-          <Button
-            disabled={item.disabled}
-            className="w-full mb-6"
-            white={!!item.price}
-          >
-            {item.price ? "Get started" : "Contact us"}
-          </Button>
+          <Link to={"/payment"} state={item}>
+            <Button
+              disabled={item.disabled}
+              className="w-full mb-6"
+              white={!!item.price}
+            >
+              {item.price ? "Get started" : "Contact us"}
+            </Button>
+          </Link>
 
           <ul>
             {item.features.map((feature, index) => (
