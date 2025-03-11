@@ -9,7 +9,7 @@ import { useLocation } from "react-router";
 import Input from "../../components/ui/Input";
 import "./payment.css";
 import Button from "../../components/ui/Button";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useAxiosSecure } from "../../hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 
@@ -24,13 +24,16 @@ const CheckOutForm = () => {
 
   useEffect(() => {
     const getPaymentIntent = async () => {
-      const res = await axiosSecure.post("/api/payment/create-payment-intent", {
-        monthDuration: monthDuration,
-        perMonth: state.price,
-        title: state.title,
-      });
+      const { data } = await axiosSecure.post(
+        "/api/payment/create-payment-intent",
+        {
+          monthDuration: monthDuration,
+          perMonth: state.price,
+          title: state.title,
+        }
+      );
 
-      console.log(res);
+      setClientSecret(data.client_secret);
     };
 
     getPaymentIntent();
@@ -77,6 +80,8 @@ const CheckOutForm = () => {
 
       // if "paymentIntent" is successful then -> store payment history and show alert or bla, bla
     });
+
+    console.log(paymentIntent);
   };
 
   return (

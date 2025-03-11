@@ -1,40 +1,41 @@
 import { useEffect } from "react";
-import useAuth from "./useAuth";
 import axios from "axios";
 
 const instance = axios.create({
-  url: import.meta.env.VITE_api_url,
+  baseURL: import.meta.env.VITE_api_url,
 });
 
 const useAxiosSecure = () => {
-  const { user } = useAuth();
   useEffect(() => {
-    if (user) {
-      instance.interceptors.request.use(
-        (request) => {
-          return request;
-        },
-        (err) => {
-          console.log(err);
+    const requestInterceptor = instance.interceptors.request.use(
+      (request) => {
+        // put the token from local storage with request header
+        const token = localStorage.getItem("access-token");
+        request.headers.authorization = token;
+        return request;
+      },
+      (err) => {
+        return Promise.reject(err);
+      }
+    );
 
-          return Promise.reject(err);
-        }
-      );
+    const responseInterceptor = instance.interceptors.request.use(
+      (request) => {
+        return request;
+      },
+      (err) => {
+        //  check and logout user
+        return Promise.reject(err);
+      }
+    );
 
-      instance.interceptors.response.use(
-        (response) => {
-          return response;
-        },
-        (err) => {
-          console.log(err);
-
-          return Promise.reject(err);
-        }
-      );
-    }
-  }, [user]);
+    return () => {
+      instance.interceptors.request.eject(requestInterceptor);
+      instance.interceptors.response.eject(responseInterceptor);
+    };
+  }, []);
 
   return instance;
 };
 
-export default useAxiosSecure;
+export { useAxiosSecure };
