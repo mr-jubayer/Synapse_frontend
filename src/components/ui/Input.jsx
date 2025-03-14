@@ -12,7 +12,7 @@ const Input = ({
   const controlled = value ? { onChange, value } : {};
 
   const classes =
-    "bg-[#1A1A2E] relative outline-none w-full  px-3 py-2 text-white/60 rounded-md  focus:ring focus:ring-1  ";
+    "bg-[#1A1A2E] relative outline-none w-full  px-3 py-2 text-[#ffffffcd] rounded-md  focus:ring focus:ring-1  ";
 
   return (
     <input
