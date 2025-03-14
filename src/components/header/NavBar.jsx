@@ -4,9 +4,16 @@ import Button from "../ui/Button";
 import useAuth from "../../hooks/useAuth";
 import ProfileIcon from "../icons/ProfileIcon";
 import classNames from "classnames";
+import LogoutIcon from "../ui/LogoutIcon";
 
 const NavBar = ({ openNavigation, handleClick }) => {
   const { user } = useAuth();
+  const { logoutUser } = useAuth();
+
+  const handleLogout = async () => {
+    await logoutUser();
+    alert("logout success");
+  };
 
   const navigation = [
     {
@@ -85,13 +92,21 @@ const NavBar = ({ openNavigation, handleClick }) => {
                   link.classes,
                   //   common styles
 
-                  `px-6 py-4 md:py-5 lg:-mr-0.25 lg:text-sm lg:font-semibold lg:leading-5 lg:hover:text-n-1 hover:text-1 xl:px-8`
+                  `px-6 py-4 md:py-5 lg:-mr-0.25 lg:text-sm lg:font-semibold lg:leading-5 lg:hover:text-n-1 hover:text-1 xl:px-8 `
                 )
               }
             >
               {link.title}
             </NavLink>
           ))}
+          {user && (
+            <button
+              className="px-6 py-4 md:py-5 lg:-mr-0.25 lg:text-sm lg:font-semibold lg:leading-5 lg:hover:text-n-1 hover:text-1 xl:px-8 block relative font-code text-2xl uppercase text-n-1 transition-colors hover:text-color-1  cursor-pointer"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          )}
         </div>
 
         <HamburgerMenu />
@@ -112,7 +127,10 @@ const NavBar = ({ openNavigation, handleClick }) => {
             </div>
           </div>
         ) : (
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center gap-4">
+            <button onClick={handleLogout}>
+              <LogoutIcon />
+            </button>
             <Link to={"/profile"}>
               <ProfileIcon />
             </Link>

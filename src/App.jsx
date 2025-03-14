@@ -19,11 +19,11 @@ const App = () => {
           <Route path="/pricing" element={<Pricing />} />
 
           <Route element={<PrivetRoute />}>
-            <Route path="/payment" element={<PaymentPage />} />
+            <Route path="/profile" element={<Profile />} />
           </Route>
 
           <Route element={<PrivetRoute />}>
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/payment" element={<PaymentPage />} />
           </Route>
 
           <Route element={<UnauthorizedAccess />}>

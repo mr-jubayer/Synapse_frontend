@@ -15,27 +15,22 @@ const Profile = () => {
     <div className="lg:pt-[2rem] md:pt-[8rem] pt-[8rem] container">
       <PageHeading>Profile Page</PageHeading>
 
-      <div className="h-full border-[2px] border-n-6 rounded-lg mt-10 p-5">
-        <div className="flex justify-between items-center">
-          <div className="flex gap-3 items-center">
-            <div className="h-32 aspect-square rounded-full bg-gray-800" />
-            <div>
-              <h2 className="text-3xl">John Doe</h2>
-              <p className="text-n-3"> john@gmail.com </p>
-            </div>
-          </div>
-          <div>
-            <button className="cursor-pointer p-3 border border-n-5 rounded-lg text-lg">
-              Edit Profile
-            </button>
-          </div>
-        </div>
-        <Divider className="my-6" />
-        <div>
-          <Button onClick={handleLogout} white>
-            Logout
-          </Button>
-        </div>
+      <div
+        className="min-h-96 flex justify-center items-center 
+        border-[2px] border-n-6 rounded-lg mt-10 p-5 "
+      >
+        <h2 className="text-xl">
+          {" "}
+          Working On this page {"  "}
+          {[0, 0, 0, 0].map((_, i) => (
+            <span
+              key={i}
+              className={`text-3xl font-bold animate-pulse  delay-${i * 1}`}
+            >
+              .
+            </span>
+          ))}{" "}
+        </h2>
       </div>
     </div>
   );

@@ -82,13 +82,13 @@ const CheckOutForm = () => {
       );
 
       if (paymentIntent.status === "succeeded") {
-        alert("payment success");
+        alert(`payment success with - TransitionId: ${paymentIntent.id}`);
       } else {
         setErr("payment confirmation failed!");
       }
 
       // if "paymentIntent" is successful then -> store payment history and show alert or bla, bla
-      console.log(paymentIntent);
+      console.log({ trxnId: paymentIntent.id });
     } catch (error) {
       setErr(error.message);
     } finally {

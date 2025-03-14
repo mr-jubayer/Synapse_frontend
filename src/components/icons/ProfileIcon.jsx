@@ -18,7 +18,7 @@ const ProfileIcon = () => {
   // }
 
   return (
-    <div className="text-2xl font-bold font-code bg-n-9 h-10 aspect-square rounded-full flex justify-center items-center shadow-inner">
+    <div className="text-xl font-bold font-code bg-n-9 h-8 aspect-square rounded-full flex justify-center items-center shadow-inner">
       {" "}
       {user.displayName[0]}
     </div>
