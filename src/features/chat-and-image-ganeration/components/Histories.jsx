@@ -1,19 +1,25 @@
 import { botIcon } from "../../../assets";
+import { NoMessage } from "./NoMessage";
 
 const Histories = ({ chats }) => {
+  if (!chats.length) {
+    return <NoMessage />;
+  }
+
   return (
-    <div className="flex items-center px-5 lg:px-7.5 xl:px-10 lg:pt-0 pt-28 pb-44">
+    <div className="flex items-center px-5 lg:px-7.5 xl:px-10 lg:pt-0 pt-28 pb-44 lg:w-8/12 mx-auto">
       <div className="w-full  p-4 text-white/90">
         {chats.map((chat) => (
           <div key={chat._id}>
             {/* user prompts */}
             <div className="flex justify-end ">
-              <p className="px-5 py-2 bg-n-4/20 rounded-full rounded-tr-none">
+              <p className="px-5 py-2 bg-n-4/20 rounded-full rounded-tr-none text-sm">
                 {chat.userPrompt}{" "}
               </p>
             </div>
+
             {/* bot replies */}
-            <div className="flex gap-3 mt-3 text-sm w-10/12">
+            <div className="flex gap-3 mt-3 text-sm lg:w-8/12 w-10/12">
               <img
                 src={botIcon}
                 alt={"bot icon"}

@@ -1,41 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Histories from "./components/Histories";
 import PromptBox from "./components/PromptBox";
 import { useAxiosSecure } from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
 
 const Chats = () => {
-  const [chats, setChats] = useState([
-    {
-      _id: 0,
-      userPrompt: "hello! how are you?",
-      botReply: "Hi! there I'm good, how about you?",
-      image: "",
-      timestamp: "",
-    },
-  ]);
+  const [chats, setChats] = useState([]);
   const [loading, setLoading] = useState(false);
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
 
+  useEffect(() => {
+    const histories = async () => {
+      const { data } = await axiosSecure(
+        `${import.meta.env.VITE_api_url}/api/chats/user-chats/${user?.email}`
+      );
+      setChats(data);
+    };
+    if (user) {
+      histories();
+    }
+  }, [user]);
+
   const handleSendPrompt = async (e) => {
     e.preventDefault();
 
-    setLoading(true);
     const prompt = e.target.prompt.value;
+    if (!prompt) return;
+    setLoading(true);
+
     const doc = {
       _id: chats.length,
       userPrompt: prompt,
       botReply: "loading",
       image: "",
       timestamp: new Date(),
+      userEmail: user?.email || null,
     };
 
     setChats((prev) => {
       return [...prev, doc];
     });
 
-    // send prompt to backend
+    // send prompt to server
     const { data } = await axiosSecure.post(
       `${import.meta.env.VITE_api_url}/api/chats/create-chat`,
       {
@@ -46,8 +53,6 @@ const Chats = () => {
         timestamp: new Date(),
       }
     );
-
-    console.log(data);
 
     const updateState = (prevChats) => {
       return prevChats.map((chat) => {
@@ -63,7 +68,6 @@ const Chats = () => {
     };
 
     setChats(updateState);
-
     setLoading(false);
   };
   return (
