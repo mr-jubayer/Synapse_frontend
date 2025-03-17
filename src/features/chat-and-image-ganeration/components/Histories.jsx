@@ -3,7 +3,7 @@ import { botIcon } from "../../../assets";
 const Histories = ({ chats }) => {
   return (
     <div className="flex items-center px-5 lg:px-7.5 xl:px-10 lg:pt-0 pt-28 pb-44">
-      <div className="w-full  p-4">
+      <div className="w-full  p-4 text-white/90">
         {chats.map((chat) => (
           <div key={chat._id}>
             {/* user prompts */}
@@ -13,7 +13,7 @@ const Histories = ({ chats }) => {
               </p>
             </div>
             {/* bot replies */}
-            <div className="flex gap-3 mt-3">
+            <div className="flex gap-3 mt-3 text-sm w-10/12">
               <img
                 src={botIcon}
                 alt={"bot icon"}
