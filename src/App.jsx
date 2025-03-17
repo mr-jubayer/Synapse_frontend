@@ -9,6 +9,7 @@ import PrivetRoute from "./routes/PrivetRoute";
 import UnauthorizedAccess from "./routes/UnauthorizedAccess";
 import Pricing from "./features/pricing/Pricing";
 import PaymentPage from "./features/pricing/PaymentPage";
+import Chats from "./features/chat-and-image-ganeration/Chats";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/chats" element={<Chats />} />
 
           <Route element={<PrivetRoute />}>
             <Route path="/profile" element={<Profile />} />
@@ -30,6 +32,8 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Route>
+
+          <Route path="*" element={<h2 className="text-7xl">Not Found!</h2>} />
         </Route>
       </Routes>
     </BrowserRouter>

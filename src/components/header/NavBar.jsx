@@ -33,8 +33,8 @@ const NavBar = ({ openNavigation, handleClick }) => {
     },
     {
       id: "3",
-      title: "Roadmap",
-      url: "/roadmap",
+      title: "Chat",
+      url: "/chats",
     },
     {
       id: "4",
